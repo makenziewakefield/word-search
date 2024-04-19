@@ -1,8 +1,21 @@
+// Makenzie && Somto
 const wordSearch = (letters, word) => { 
+    if (letters.length === 0) {
+        return false;
+    }
     const horizontalJoin = letters.map(ls => ls.join(''))
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
+    for (let i = 0; i < letters[0].length; i++){
+        let string = '';
+        for (let j = 0; j < letters.length; j++) {
+            string += letters[j][i];
+        }
+        if (string.includes(word)) return true
+    }
+    return false;
+    
 }
 
 module.exports = wordSearch
